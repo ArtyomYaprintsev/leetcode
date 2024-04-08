@@ -11,11 +11,5 @@ pytest-sugar
 # This plugin produces coverage reports.
 pytest-cov
 
-# Use fixtures in @pytest.mark.parametrize
-pytest-lazy-fixture
-
-# Typing stubs for pytest-lazy-fixture
-types-pytest-lazy-fixture
-
 # This plugin provides a mocker fixture
 pytest-mock
