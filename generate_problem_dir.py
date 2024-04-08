@@ -53,7 +53,7 @@ class Problem:
         self.format_name = f"{self.number}-{formatted_name}"
 
     def generate_dir(self) -> None:
-        dir_path = BASE_DIR / self.format_name
+        dir_path = BASE_DIR / "problems" / self.format_name
 
         if dir_path.exists():
             raise ValueError(
