@@ -2,6 +2,8 @@
 
 My Leetcode problems solution.
 
+[Artyom's LeetCode stats](https://leetcode-stats-six.vercel.app/?username=DevCrusader&theme=dark)
+
 ## Description
 
 Problems source: [leetcode](https://leetcode.com/).
