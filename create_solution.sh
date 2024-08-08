@@ -45,6 +45,6 @@ done
 
 # # Add the new file to git and commit
 git add "$solution_dir"
-git commit -m "Init solution"
+git commit -m ":see_no_evil: Init solution"
 
 echo "Branch, folder, and related files created successfully."
