@@ -9,21 +9,44 @@ def create_solution():
 
 
 @pytest.mark.parametrize(
-    ...,
+    ['str1', 'str2', 'expected'],
+    [
+        pytest.param(
+            '',
+            '',
+            '',
+            id='empty_for_empty_strings',
+        ),
+        pytest.param(
+            'abc',
+            '',
+            '',
+            id='empty_for_one_empty_string',
+        ),
+        pytest.param(
+            'abc',
+            'abc',
+            'abc',
+            id='two_equal_strings',
+        ),
+        pytest.param(
+            'abcabc',
+            'abc',
+            'abc',
+            id='simple_substring_repeat',
+        ),
+        pytest.param(
+            'abcabcabc',
+            'abcabc',
+            'abc',
+            id='complex_substring_repeat',
+        ),
+    ]
 )
-def test_1(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_2(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_3(solution: Solution, ...):
-    pass
+def test_gcd_of_strings(
+    solution: Solution,
+    str1: str,
+    str2: str,
+    expected: str,
+):
+    assert solution.gcdOfStrings(str1, str2) == expected
