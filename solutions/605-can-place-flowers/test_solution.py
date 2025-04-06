@@ -9,21 +9,25 @@ def create_solution():
 
 
 @pytest.mark.parametrize(
-    ...,
+    [
+        "flowerbed",
+        "n",
+        "expected_result",
+    ],
+    [
+        [[0], 1, True],
+        [[1], 1, False],
+        [[0, 1, 0], 1, False],
+        [[0, 0, 1], 1, True],
+        [[0, 0, 1], 2, False],
+        [[1, 0, 0, 0, 1], 1, True],
+        [[1, 0, 0, 0, 1], 2, False],
+    ],
 )
-def test_1(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_2(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_3(solution: Solution, ...):
-    pass
+def test_solution(
+    solution: Solution,
+    flowerbed: list[int],
+    n: int,
+    expected_result: bool,
+):
+    assert solution.canPlaceFlowers(flowerbed, n) == expected_result
