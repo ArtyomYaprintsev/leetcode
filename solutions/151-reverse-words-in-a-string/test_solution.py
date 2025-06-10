@@ -9,21 +9,17 @@ def create_solution():
 
 
 @pytest.mark.parametrize(
-    ...,
+    ["input_str", "expected_str"],
+    [
+        ("", ""),
+        ("a", "a"),
+        ("abc", "abc"),
+        ("a b c", "c b a"),
+        ("   a", "a"),
+        ("a   ", "a"),
+        ("   a   ", "a"),
+        ("   a   b   c   ", "c b a"),
+    ],
 )
-def test_1(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_2(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_3(solution: Solution, ...):
-    pass
+def test_solution(solution: Solution, input_str: str, expected_str: str):
+    assert solution.reverseWords(input_str) == expected_str
