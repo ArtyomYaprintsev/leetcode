@@ -9,21 +9,26 @@ def create_solution():
 
 
 @pytest.mark.parametrize(
-    ...,
+    ["input_substr", "input_str", "expected"],
+    [
+        ["", "", True],
+        ["a", "a", True],
+        ["ab", "ab", True],
+        ["ab", "ba", False],
+        ["ab", "axb", True],
+        ["ab", "ax", False],
+        ["ab", "axxx", False],
+        ["ab", "xxxaxxx", False],
+        ["ab", "eidbaoo", False],
+        ["ab", "eadbaoo", True],
+        ["abc", "ahbgdc", True],
+        ["axc", "ahbgdc", False],
+    ],
 )
-def test_1(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_2(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_3(solution: Solution, ...):
-    pass
+def test_solution(
+    solution: Solution,
+    input_substr: str,
+    input_str: str,
+    expected: bool,
+):
+    assert solution.isSubsequence(input_substr, input_str) == expected
