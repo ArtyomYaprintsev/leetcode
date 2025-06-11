@@ -9,21 +9,21 @@ def create_solution():
 
 
 @pytest.mark.parametrize(
-    ...,
+    ["input_lst", "expected"],
+    [
+        ([0, 1], 0),
+        ([1, 1], 1),
+        ([1, 10], 1),
+        ([1, 2, 3], 2),
+        ([1, 1, 5, 5, 1], 5),
+        ([5, 5, 1, 1, 1, 1, 1], 6),
+        ([5, 1, 5], 10),
+        ([5, 1, 1, 5], 15),
+        ([1, 1, 1, 1, 1], 4),
+        ([1, 1, 10, 1, 1], 4),
+        ([1, 8, 6, 2, 5, 4, 8, 3, 7], 49),
+        ([1] + [0] * 10_000 + [1], 10_001),
+    ],
 )
-def test_1(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_2(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_3(solution: Solution, ...):
-    pass
+def test_solution(solution: Solution, input_lst: list[int], expected: int):
+    assert solution.maxArea(input_lst) == expected
