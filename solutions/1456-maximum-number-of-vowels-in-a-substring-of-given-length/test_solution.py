@@ -9,21 +9,14 @@ def create_solution():
 
 
 @pytest.mark.parametrize(
-    ...,
+    ["input_s", "input_k", "output"],
+    [
+        ("a", 1, 1),
+        ("b", 1, 0),
+        ("abciiidef", 3, 3),
+        ("aeiou", 2, 2),
+        ("leetcode", 3, 2),
+    ],
 )
-def test_1(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_2(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_3(solution: Solution, ...):
-    pass
+def test_solution(solution: Solution, input_s: str, input_k: int, output: int):
+    assert solution.maxVowels(input_s, input_k) == output
