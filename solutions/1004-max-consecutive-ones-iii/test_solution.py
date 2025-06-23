@@ -9,21 +9,26 @@ def create_solution():
 
 
 @pytest.mark.parametrize(
-    ...,
+    ["input_nums", "input_k", "output"],
+    [
+        ([0], 0, 0),
+        ([1], 0, 1),
+        ([1], 2, 1),
+        ([0, 0], 0, 0),
+        ([0, 0], 1, 1),
+        ([0, 0], 2, 2),
+        ([1, 0], 0, 1),
+        ([1, 0], 1, 2),
+        ([1, 0], 2, 2),
+        ([1, 0, 1], 1, 3),
+        ([1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], 2, 6),
+        ([0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1], 3, 10),
+    ],
 )
-def test_1(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_2(solution: Solution, ...):
-    pass
-
-
-@pytest.mark.parametrize(
-    ...,
-)
-def test_3(solution: Solution, ...):
-    pass
+def test_solution(
+    solution: Solution,
+    input_nums: list[int],
+    input_k: int,
+    output: int,
+):
+    assert solution.longestOnes(input_nums, input_k) == output
